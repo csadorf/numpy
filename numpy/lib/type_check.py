@@ -405,7 +405,8 @@ def nan_to_num(x, copy=True):
 
 def real_if_close(a,tol=100):
     """
-    If complex input returns a real array if complex parts are close to zero.
+    A complex input array is returned as real array if all imaginary parts
+    are close to zero.
 
     "Close to zero" is defined as `tol` * (machine epsilon of the type for
     `a`).
@@ -415,8 +416,8 @@ def real_if_close(a,tol=100):
     a : array_like
         Input array.
     tol : float
-        Tolerance in machine epsilons for the complex part of the elements
-        in the array.
+        Interpreted as absolute tolerance if less than one, otherwise,
+        as multiple of machine epsilon.
 
     Returns
     -------
